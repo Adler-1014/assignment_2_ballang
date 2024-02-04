@@ -33,7 +33,6 @@ const ProductTitle = styled.h3`
   margin: 4px 0;
   font-size: 14px;
 `;
-
 const ProductPrice = styled.p`
   margin: 4px 0;
   font-size: 14px;
@@ -43,6 +42,10 @@ const ProductSale = styled.p`
   margin: 4px 0;
   font-size: 14px;
   color: red;
+`;
+const ProductLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 function ProductListItem({ product }) {
@@ -55,10 +58,13 @@ function ProductListItem({ product }) {
     }
   };
 
+  const errorAlter = () => {
+    alert("로그인이 필요한 기능입니다.");
+  };
+
   return (
     <ProductCard>
-      {/* Wrap the entire product card with a Link to the product detail page */}
-      <Link to={`/products/${product.id}`}>
+      <ProductLink to={`/products/${product.id}`}>
         <ProductImage src={product.img_i} alt={product.goodsnm} />
         <ProductInfo>
           <ProductTitle>
@@ -67,14 +73,16 @@ function ProductListItem({ product }) {
           <ProductPrice>Price: ${product.price.toLocaleString()}</ProductPrice>
           <ProductSale>Sale: {product.sale_percent}% off</ProductSale>
         </ProductInfo>
-        {!isLoggedIn ? (
+      </ProductLink>
+      {!isLoggedIn ? (
+        <div>
           <Link to="/sign-in">
-            <button>Add to Cart</button>
+            <button onClick={errorAlter}>Add to Cart</button>
           </Link>
-        ) : (
-          <button onClick={handleAddToCart}>Add to Cart</button>
-        )}
-      </Link>
+        </div>
+      ) : (
+        <button onClick={handleAddToCart}>Add to Cart</button>
+      )}
     </ProductCard>
   );
 }

@@ -15,7 +15,8 @@ const FooterContainer = styled.footer`
 const Footer = () => {
   return (
     <FooterContainer>
-      © {new Date().getFullYear()} Your Site Name. All rights reserved.
+      © {new Date().getFullYear()} 유데미X사람인 취업 부트캠프 교육생 장은수,
+      react 실습 과제
     </FooterContainer>
   );
 };

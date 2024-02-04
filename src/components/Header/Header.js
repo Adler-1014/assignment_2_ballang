@@ -10,6 +10,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  margin-bottom: 60px;
 `;
 
 const Logo = styled.h1`
@@ -29,6 +30,7 @@ const Nav = styled.nav`
     gap: 20px;
     margin: 0;
     padding: 0;
+    margin-top: 30px;
   }
 
   li a,
@@ -76,9 +78,14 @@ function Header() {
               </li>
             </>
           ) : (
-            <li>
-              <Link to="sign-in">로그인하기</Link>
-            </li>
+            <>
+              <li>
+                <Link to="sign-in">로그인하기</Link>
+              </li>
+              <li>
+                <Link to="/sign-in">장바구니</Link>
+              </li>
+            </>
           )}
         </ul>
       </Nav>
