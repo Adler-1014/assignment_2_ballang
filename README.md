@@ -21,3 +21,7 @@
 
 <h2> 장바구니에서 담은 상품 확인 </h2>
 <img width="1164" alt="스크린샷 2024-02-05 오전 12 18 42" src="https://github.com/Adler-1014/assignment_2_ballang/assets/38238197/7d684486-54e7-445d-b3dc-815ee7d22a2e">
+
+<h2> 디테일 페이지에서 상품 수량 조절 및 장바구니에서 조정된 것 확인 </h2>
+<img width="1160" alt="스크린샷 2024-02-05 오전 12 19 23" src="https://github.com/Adler-1014/assignment_2_ballang/assets/38238197/294f6d6a-53c5-4c4c-ac42-06245252f0e4">
+<img width="1160" alt="스크린샷 2024-02-05 오전 12 19 53" src="https://github.com/Adler-1014/assignment_2_ballang/assets/38238197/2caaa3fe-a1f7-4dcc-afe0-b12cf02d85fa">
