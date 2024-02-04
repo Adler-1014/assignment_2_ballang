@@ -71,6 +71,9 @@ function Header() {
               <li>
                 <button onClick={logOut}>로그아웃</button>
               </li>
+              <li>
+                <Link to="/cart">장바구니</Link>
+              </li>
             </>
           ) : (
             <li>
