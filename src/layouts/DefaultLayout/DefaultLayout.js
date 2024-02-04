@@ -5,8 +5,8 @@ import Footer from "../../components/Footer";
 import styled from "styled-components";
 
 const Layout = styled.div`
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   min-height: 100%;
   padding-bottom: 4rem;
 `;
