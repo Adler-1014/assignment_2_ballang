@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { useAuth } from "../../contexts/auth.context";
-import { addItemActionCreator } from "../../store/reducers/cart.reducer";
+import {
+  addItemActionCreator,
+  updateQuantityActionCreator,
+} from "../../store/reducers/cart.reducer";
 
 const ProductCard = styled.div`
   border: 1px solid #ccc;
@@ -33,6 +36,7 @@ const ProductTitle = styled.h3`
   margin: 4px 0;
   font-size: 14px;
 `;
+
 const ProductPrice = styled.p`
   margin: 4px 0;
   font-size: 14px;
@@ -43,6 +47,7 @@ const ProductSale = styled.p`
   font-size: 14px;
   color: red;
 `;
+
 const ProductLink = styled(Link)`
   text-decoration: none;
   color: inherit;
@@ -51,9 +56,19 @@ const ProductLink = styled(Link)`
 function ProductListItem({ product }) {
   const dispatch = useDispatch();
   const { isLoggedIn } = useAuth();
+  const cartItems = useSelector((state) => state.cart.items);
+
   const handleAddToCart = () => {
     if (isLoggedIn) {
-      dispatch(addItemActionCreator(product));
+      const existingCartItem = cartItems.find((item) => item.id === product.id);
+
+      if (existingCartItem) {
+        const newQuantity = existingCartItem.quantity + 1;
+        dispatch(updateQuantityActionCreator(product.id, newQuantity));
+      } else {
+        dispatch(addItemActionCreator({ ...product, quantity: 1 }));
+      }
+
       alert("장바구니에 담겼습니다.");
     }
   };

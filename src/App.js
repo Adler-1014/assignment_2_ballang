@@ -2,14 +2,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
-import SignInPage from "./pages/SignInPage/SignInPage"; // Corrected typo "SighnInPage" to "SignInPage"
+import SignInPage from "./pages/SignInPage/SignInPage";
 import MyPage from "./pages/MyPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage from "./pages/CartPage";
 import { AuthProvider } from "./contexts/auth.context";
 
 function App() {
-  // Correctly return the Routes wrapped in a fragment if needed
   return (
     <AuthProvider>
       <BrowserRouter>

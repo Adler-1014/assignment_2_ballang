@@ -5,12 +5,9 @@ import ProductListItem from "../../components/ProductListItem";
 
 const ProductsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(200px, 1fr)
-  ); /* Adjust minmax for desired item width */
-  gap: 16px; /* Adjust gap for desired spacing */
-  padding: 16px; /* Add some padding around the grid */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
 `;
 
 function HomePage() {
@@ -20,7 +17,7 @@ function HomePage() {
     api.products
       .getProducts("")
       .then((response) => {
-        setProducts(response); // Adjust this according to the actual structure of your response
+        setProducts(response);
       })
       .catch((error) => {
         console.error("Failed to fetch products", error);

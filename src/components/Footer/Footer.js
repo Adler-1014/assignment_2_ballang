@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-// Styled component for the footer
 const FooterContainer = styled.footer`
-  background-color: #f0f0f0; // Light gray background
-  color: #333; // Dark text color
+  background-color: #f0f0f0;
+  color: #333;
   text-align: center;
   padding: 20px 0;
   position: relative;

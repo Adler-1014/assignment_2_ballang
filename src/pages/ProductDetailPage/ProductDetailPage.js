@@ -19,7 +19,7 @@ const ProductCard = styled.div`
 `;
 
 const ProductImage = styled.img`
-  width: 50%; /* Set the width to 50% to place it on the left */
+  width: 50%;
   height: 500px;
   object-fit: cover;
 `;
@@ -53,15 +53,23 @@ const ProductCatnm = styled.p`
   font-size: 14px;
 `;
 
+const QuantityInput = styled.input`
+  width: 50px;
+  height: 30px;
+  margin-top: 10px;
+`;
+
 function ProductDetailPage() {
   const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
   const { productId } = useParams();
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
+
   const handleAddToCart = () => {
     if (isLoggedIn) {
-      dispatch(addItemActionCreator(product));
-      alert("장바구니에 담겼습니다.");
+      dispatch(addItemActionCreator({ ...product, quantity }));
+      alert(`Added ${quantity} item(s) to the cart.`);
     }
   };
 
@@ -70,11 +78,10 @@ function ProductDetailPage() {
   };
 
   useEffect(() => {
-    // Fetch the specific product by its ID
     api.products
       .getProductById(productId)
       .then((response) => {
-        setProduct(response); // Set the fetched product data to state
+        setProduct(response);
       })
       .catch((error) => {
         console.error("Failed to fetch product details", error);
@@ -99,6 +106,12 @@ function ProductDetailPage() {
             ))}
           </ul>
         </ProductCatnm>
+        <QuantityInput
+          type="number"
+          min="1"
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+        />
         {!isLoggedIn ? (
           <Link to="/sign-in">
             <button onClick={errorAlter}>Add to Cart</button>

@@ -4,7 +4,6 @@ import { updateNickname } from "../../store/reducers/profile.reducer";
 import { removeItemActionCreator } from "../../store/reducers/cart.reducer";
 import styled from "styled-components";
 
-// Create styled components
 const Section = styled.section`
   padding: 20px;
 `;
@@ -41,7 +40,6 @@ function MyPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Set the current nickname in the input field when the component mounts
     setNewNickname(nickname);
   }, [nickname]);
 

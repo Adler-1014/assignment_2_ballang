@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "nanoid"; // Import nanoid
+import { nanoid } from "nanoid";
 
 export const profileSlice = createSlice({
   name: "profile",
   initialState: {
-    nickname: `guest_${nanoid(5)}`, // Generate a default nickname with nanoid
+    nickname: `guest_${nanoid(5)}`,
   },
   reducers: {
     updateNickname: (state, action) => {

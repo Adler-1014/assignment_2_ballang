@@ -15,13 +15,11 @@ const HeaderContainer = styled.header`
 
 const Logo = styled.h1`
   font-weight: bold;
-  font-size: 32px; // Increased font size
+  font-size: 32px;
   margin: 0;
-  position: absolute; // Positioned absolutely to center in the container
-  left: 50%; // Align center of the logo to the center of the container
-  transform: translateX(
-    -50%
-  ); // Offset the logo to the left by half its width to truly center it
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 const Nav = styled.nav`
   ul {
